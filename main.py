@@ -5,6 +5,7 @@ from asteroid import Asteroid
 from constants import *
 from player import Player
 from asteroidfield import AsteroidField
+from shot import Shot
 
 def main():
     print("Starting Asteroids!")
@@ -19,11 +20,13 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     
     # Assign containers to classes
     Player.containers = (updatable, drawable) # pyright: ignore[reportAttributeAccessIssue]
     Asteroid.containers = (asteroids, updatable, drawable) # pyright: ignore[reportAttributeAccessIssue]
     AsteroidField.containers = (updatable,) # pyright: ignore[reportAttributeAccessIssue]
+    Shot.containers = (shots, updatable, drawable) # pyright: ignore[reportAttributeAccessIssue]
     
     # Create game objects
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
